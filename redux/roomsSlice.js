@@ -40,8 +40,9 @@ export const getRooms = page => async dispatch => {
         page,
       })
     );
-  } catch (e) {}
-  console.warn(e);
+  } catch (e) {
+    console.warn(e);
+  }
 };
 
 export default roomsSlice.reducer;

@@ -45,7 +45,7 @@ export default ({ navigation: { navigate } }) => {
     }
     setLoading(true);
     try {
-      const { status } = await createAccount({
+      const { status } = await api.createAccount({
         first_name: firstName,
         last_name: lastName,
         email,

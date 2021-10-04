@@ -1,21 +1,17 @@
 import axios from "axios";
 
-// make easy request without URL copypasting.
-// make post get delete put requests.
-// send jwt automaically
-
 const callApi = async (method, path, data, jwt) => {
   const headers = {
     Authorization: jwt,
-    "Content-Type": "applicatttion/json",
+    "Content-Type": "application/json",
   };
-  const baseURL = "http://127.0.0.1:8000/api/v1";
-  const fullURL = `${baseURL}${path}`;
-  if (method === "get" || method === "delee") {
-    return axios[method](fullURL, { headers });
+  const baseUrl = "http://127.0.0.1:8000/api/v1";
+  const fullUrl = `${baseUrl}${path}`;
+  if (method === "get" || method === "delete") {
+    return axios[method](fullUrl, { headers });
   } else {
-    return axios[method](fullURL, data, { headers });
+    return axios[method](fullUrl, data, { headers });
   }
 };
 
-export const createAccoubn = form => callApi("post", "/users/", form);
+export const createAccount = form => callApi("post", "/users/", form);

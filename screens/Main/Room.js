@@ -4,6 +4,7 @@ import styled from "styled-components/native";
 import colors from "../../colors";
 import RoomPhotos from "../../components/RoomPhotos";
 import utils from "../../utils";
+import MapView, { Marker } from "react-native-maps";
 
 const Container = styled.ScrollView``;
 
@@ -59,6 +60,12 @@ const CheckTime = styled.Text`
   margin-top: 10px;
 `;
 
+const MapContainer = styled.View`
+  width: 100%;
+  height: 200px;
+  margin-top: 30px;
+`;
+
 function formateTime(time) {
   const [hours, min, sec] = time.split(":");
   return `${hours} o'clock.`;
@@ -72,7 +79,9 @@ export default ({ route: { params }, navigation }) => {
     <Container>
       <RoomPhotos photos={params.photos} factor={2} />
       <DataContainer>
-        <Address>{params.address}</Address>
+        <Address>
+          {params.address} / ${params.price}
+        </Address>
         <PropertyInfoContainer>
           <PropertyInfoData>
             <PropertyInfoText>
@@ -104,6 +113,29 @@ export default ({ route: { params }, navigation }) => {
             {formateTime(params.check_in)} / {formateTime(params.check_out)}
           </CheckTime>
         </CheckContainer>
+        <MapContainer>
+          <MapView
+            camera={{
+              center: {
+                latitude: parseFloat(params.lat),
+                longitude: parseFloat(params.lng),
+              },
+              altitude: 10 * 200,
+              pitch: 25,
+              heading: 0,
+            }}
+            zoomEnabled={false}
+            scrollEnabled={false}
+            style={{ height: "100%", width: "100%" }}
+          >
+            <Marker
+              coordinate={{
+                longitude: parseFloat(params.lng),
+                latitude: parseFloat(params.lat),
+              }}
+            />
+          </MapView>
+        </MapContainer>
       </DataContainer>
     </Container>
   );

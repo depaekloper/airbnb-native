@@ -7,7 +7,7 @@ import SignInPresenter from "./SignInPresenter";
 export default ({ route: { params } }) => {
   const dispatch = useDispatch();
   const [email, setEamil] = useState(params?.email || "sw1133@nate.com");
-  const [password, setPassword] = useState(params?.password || "12345");
+  const [password, setPassword] = useState(params?.password || "1q2w3e4r!");
   const isFormValid = () => {
     if (email === "" || password === "") {
       alert("All fields are required.");

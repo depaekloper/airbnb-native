@@ -1,5 +1,5 @@
 import { createSlice } from "@reduxjs/toolkit";
-import api, { login } from "../api";
+import api from "../api";
 import { setFavs } from "./roomsSlice";
 
 const userSlice = createSlice({

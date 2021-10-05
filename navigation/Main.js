@@ -9,6 +9,7 @@ import utils from "../utils";
 import { Ionicons } from "@expo/vector-icons";
 import { createStackNavigator } from "@react-navigation/stack";
 import Room from "../screens/Main/Room";
+import BackBtn from "../components/Auth/BackBtn";
 
 const TabsNavigator = createBottomTabNavigator();
 
@@ -56,7 +57,13 @@ const Tabs = () => (
 
 const MainNavigator = createStackNavigator();
 export default () => (
-  <MainNavigator.Navigator screenOptions={{ headerBackTitleVisible: false }}>
+  <MainNavigator.Navigator
+    mode="modal"
+    screenOptions={{
+      headerBackTitleVisible: false,
+      headerBackImage: () => <BackBtn />,
+    }}
+  >
     <MainNavigator.Screen
       name="Tabs"
       component={Tabs}

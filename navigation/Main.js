@@ -4,6 +4,7 @@ import Explore from "../screens/Main/Explore";
 import MapScreen from "../screens/Main/Map";
 import Profile from "../screens/Main/Profile";
 import Saved from "../screens/Main/Saved";
+import Search from "../screens/Main/Search";
 import colors from "../colors";
 import utils from "../utils";
 import { Ionicons } from "@expo/vector-icons";
@@ -84,6 +85,13 @@ export default () => (
           />
         ),
       }}
+    />
+    <MainNavigator.Screen
+      name="Search"
+      options={{
+        headerShown: false,
+      }}
+      component={Search}
     />
   </MainNavigator.Navigator>
 );

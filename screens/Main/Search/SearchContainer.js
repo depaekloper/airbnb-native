@@ -24,7 +24,6 @@ export default token => {
     try {
       const { data } = await api.search(form, token);
       setResults(data);
-      console.log(data);
     } catch (e) {
       console.warn(e);
     } finally {

@@ -7,8 +7,6 @@ import BackBtn from "../components/Auth/BackBtn";
 
 const Auth = createStackNavigator();
 
-const isAndroid = Platform.OS === "android";
-
 export default () => (
   <Auth.Navigator
     mode="modal"
